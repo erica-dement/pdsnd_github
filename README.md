@@ -7,7 +7,7 @@ August 20, 2021
 Bikeshare
 
 ### Description
-Using data to identify statistical patterns.
+Using data to identify bikesharing patterns in Chicago, New York City and Washington.
 
 ### Files used
 chicago.csv
