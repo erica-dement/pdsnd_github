@@ -93,21 +93,21 @@ def time_stats(df):
     month_index = df['month'].mode()[0] - 1
     months = ['January', 'February', 'March', 'April', 'May', 'June']
     popular_month = months[month_index]
-    print('Most Common Start Month:', popular_month)
+    print('Most Common Start Month: {}'.format(popular_month))
     
     # TO DO: display the most common day of week
     
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     popular_day = df['day_of_week'].mode()[0]
-    print('Most Common Start Day:', popular_day)
+    print('Most Common Start Day: {}'.format(popular_day))
 
     # TO DO: display the most common start hour
     
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
-    print('Most Common Start Hour:', popular_hour)
+    print('Most Common Start Hour: {}'.format(popular_hour))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),2))
     print('-'*40)
 
 
@@ -121,22 +121,22 @@ def station_stats(df):
     start_types = df['Start Station'].value_counts()
     start_types = start_types.nlargest(1)
     start_types = start_types.keys()[0]
-    print('Most Common Start Station:', start_types)
+    print('Most Common Start Station: {}'.format(start_types))
 
     # TO DO: display most commonly used end station
     end_types = df['End Station'].value_counts()
     end_types = end_types.nlargest(1)
     end_types = end_types.keys()[0]
-    print('Most Common End Station:', end_types)
+    print('Most Common End Station: {}'.format(end_types))
 
     # TO DO: display most frequent combination of start station and end station trip
     station_types = 'Start Station: ' + df['Start Station'].astype(str) + ', End Station: ' + df['End Station'].astype(str)
     station_types = station_types.value_counts()
     station_types = station_types.nlargest(1)
     station_types = station_types.keys()[0]
-    print('Most Frequent Combination: ', station_types)
+    print('Most Frequent Combination: {}'.format(station_types))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),2))
     print('-'*40)
 
 
@@ -148,13 +148,13 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     total_travel = df['Trip Duration'].sum()
-    print('Total Travel Time: ', total_travel, 'seconds')
+    print('Total Travel Time: {} seconds'.format(total_travel))
 
     # TO DO: display mean travel time
     mean_travel = df['Trip Duration'].mean()
-    print('Mean Travel Time: ', mean_travel, 'seconds')
+    print('Mean Travel Time: {} seconds'.format(mean_travel))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),2))
     print('-'*40)
 
 
@@ -194,7 +194,7 @@ def user_stats(df):
     else:
         print('Birth Year stats cannot be calculated because Birth Year does not appear in the dataframe')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % round((time.time() - start_time),2))
     print('-'*40)
     
 
